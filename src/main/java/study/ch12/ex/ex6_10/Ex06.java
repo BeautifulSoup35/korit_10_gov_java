@@ -1,6 +1,4 @@
-package ex;
-
-import java.util.Arrays;
+package study.ch12.ex.ex6_10;
 
 public class Ex06 {
     public static void main(String[] args) {

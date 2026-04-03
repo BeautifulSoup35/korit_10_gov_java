@@ -1,4 +1,4 @@
-package ex;
+package study.ch12.ex.ex1_5;
 
 public class Ex04 {
     public static void main(String[] args) {
