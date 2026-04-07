@@ -59,6 +59,7 @@ public class Ex06 {
             scoreMap.replace(key, scoreMap.get(key) / studentList.size());
         }
 
+
         System.out.println(scoreMap);
         Map<String, Integer> totalScoreMap = new HashMap<>();
 
