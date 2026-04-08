@@ -17,6 +17,7 @@ class Student {
 public class Ex06 {
     public static void main(String[] args) {
         int currentStudentCode = 20260000;
+
         List<Student> studentList = List.of(
                 Student.builder().name("권").studentYear(1).korScore(80).engScore(90).mathScore(2).build(),
                 Student.builder().name("민").studentYear(2).korScore(70).engScore(80).mathScore(3).build(),
