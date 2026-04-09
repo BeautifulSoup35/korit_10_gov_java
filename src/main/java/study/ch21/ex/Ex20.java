@@ -1,12 +1,10 @@
 package study.ch21.ex;
 
-import study.ch12.Cat;
-
-public class Ex01 {
+public class Ex20 {
     public static void main(String[] args) {
-        DataService dataService = new DataService();
-        dataService.fetchData("jdbc:mysql://localhost");
-        dataService.fetchData(null);
+//        DataService dataService = new DataService();
+//        dataService.fetchData("jdbc:mysql://localhost");
+//        dataService.fetchData(null);
 
     }
 }
