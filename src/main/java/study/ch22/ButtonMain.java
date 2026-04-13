@@ -7,7 +7,7 @@ class HomeButton implements ButtonClick {
     }
 }
 
-class BackBuuton implements ButtonClick{
+class BackButton implements ButtonClick{
     @Override
     public void onClick() {
         System.out.println("뒤로 이동");
@@ -24,7 +24,7 @@ class LoginButton implements ButtonClick {
 public class ButtonMain {
     public static void main(String[] args) {
         ButtonClick btn1 = new HomeButton();
-        ButtonClick btn2 = new BackBuuton();
+        ButtonClick btn2 = new BackButton();
         ButtonClick btn3 = new LoginButton();
         ButtonClick btn4 = new ButtonClick() {
             @Override

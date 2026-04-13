@@ -4,7 +4,7 @@ import java.util.*;
 
 class Person {
     private String name;
-    private
+//    private
 }
 public class Ex05 {
     public static void main(String[] args) {
@@ -14,6 +14,6 @@ public class Ex05 {
                 Map.of("name", "박고랭", "age", 22)
         );
 
-        System.out.println(people.stream().map(s -> s.));
+//        System.out.println(people.stream().map(s -> s.));
     }
 }

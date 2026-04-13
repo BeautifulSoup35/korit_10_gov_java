@@ -4,4 +4,4 @@ public interface ButtonClick {
     void onClick();
 
 }
-class
+//class
