@@ -50,7 +50,7 @@ public class Controller {
 
 
     }
-    public static ResponseDto<?> accountController(String selectedMnue) {
+    public static ResponseDto<?> createaccountController(String selectedMnue) {
         ResponseDto<?> responseDto = new ResponseDto<>(200, null);
         if ("1".equals(selectedMnue)) {
             //계좌 생성
@@ -63,10 +63,8 @@ public class Controller {
             int balance = Integer.parseInt(Input.nextLine());
             Account newAccount = new Account(0, accountno, owner, balance);
             Account savedAccount = AccountRepositoryImpl.ACCOUNT_REPOSITORY.save(newAccount);
+            System.out.println("계좌생성완료 - 계좌정보");
             System.out.println(savedAccount);
-
-
-        } else if ("2".equals(selectedMnue)) {
 
         } else if ("b".equals(selectedMnue)) {
             responseDto.setStatus(100);
