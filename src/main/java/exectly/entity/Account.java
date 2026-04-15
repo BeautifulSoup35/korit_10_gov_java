@@ -1,8 +1,7 @@
-package ex2.entity;
+package exectly.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 
 @Data
 @AllArgsConstructor
@@ -16,7 +15,5 @@ public class Account {
         this.accountNo = account.accountNo;
         this.owner = account.owner;
         this.balance = account.balance;
-
-
     }
 }

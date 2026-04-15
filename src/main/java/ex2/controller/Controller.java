@@ -1,12 +1,11 @@
 package ex2.controller;
 
 
-import ex2.Repository.AccountRepository;
-import ex2.Repository.AccountRepositoryImpl;
-import ex2.dto.ResponseDto;
-import ex2.entity.Account;
-import ex2.util.Input;
-
+import ex2.Repository.*;
+import ex2.dto.*;
+import ex2.entity.*;
+import ex2.router.*;
+import ex2.util.*;
 import java.util.*;
 
 public class Controller {
@@ -14,16 +13,9 @@ public class Controller {
         ResponseDto<Map<String, Object>> responseDto = new ResponseDto<>(200, new HashMap<>());
         try {
             if ("1".equals(selectedMenu)) {
-                throw new RuntimeException("계좌등록 실패 유효한 계좌번호를 입력하세요");
+                RouterPath.current = Routes.CREATE_ACCOUNT.name();
             } else if ("2".equals(selectedMenu)) {
-
-            } else if ("3".equals(selectedMenu)) {
-
-            } else if ("4".equals(selectedMenu)) {
-
-            } else if ("5".equals(selectedMenu)) {
-
-            } else if ("6".equals(selectedMenu)) {
+                RouterPath.current = Routes.ACCOUNT.name();
 
             } else if ("q".equals(selectedMenu)) {
                 responseDto.setStatus(100);
@@ -40,17 +32,50 @@ public class Controller {
 
         return responseDto;
     }
+
     public static ResponseDto<?> getAccountListController() {
         ResponseDto<?> responseDto;
-        List<Account> accountList =  AccountRepositoryImpl.ACCOUNT_REPOSITORY.findAll();
-        if ( accountList.size() == 0) {//가지고온 account가 비어있다면
+        List<Account> accountList = AccountRepositoryImpl.ACCOUNT_REPOSITORY.findAll();
+        if (accountList.size() == 0) {//가지고온 account가 비어있다면
             return new ResponseDto<>(400, "조회된 계좌");
         }
-            return new ResponseDto<>(200, accountList);
+        return new ResponseDto<>(200, accountList);
+    }
 
+    public static ResponseDto<?> selectAccountController(int id) {
+        Optional<Account> foundAccountOptional = AccountRepositoryImpl.ACCOUNT_REPOSITORY.findById(id);
+        if (foundAccountOptional.isEmpty()) {
+            return new ResponseDto<>(400, "해당 ID는 등록되지 않은 계좌정보입니다.");
+        }
+        return new ResponseDto<>(200, foundAccountOptional.get());//옵셔널의 get == 옵셔널의 객체
 
     }
-    public static ResponseDto<?> createaccountController(String selectedMnue) {
+
+    public static ResponseDto<?> accountMenuController(String selectedMenu) {
+        ResponseDto<Map<String, Object>> responseDto = new ResponseDto<>(200, new HashMap<>());
+        try {
+            if ("1".equals(selectedMenu)) {
+                RouterPath.current = Routes.CREATE_ACCOUNT.name();
+            } else if ("2".equals(selectedMenu)) {
+                RouterPath.current = Routes.ACCOUNT.name();
+
+            } else if ("q".equals(selectedMenu)) {
+                responseDto.setStatus(100);
+            } else {
+                throw new RuntimeException("해당값을 유효하지 않습니다.");
+            }
+        } catch (RuntimeException e) {
+            Map<String, Object> errorMap = Map.of(
+                    "message", e.getMessage()
+
+            );
+            responseDto = new ResponseDto<>(400, errorMap);
+
+        }
+        return responseDto;
+    }
+
+    public static ResponseDto<?> createaccountController (String selectedMnue){
         ResponseDto<?> responseDto = new ResponseDto<>(200, null);
         if ("1".equals(selectedMnue)) {
             //계좌 생성
@@ -64,9 +89,10 @@ public class Controller {
             Account newAccount = new Account(0, accountno, owner, balance);
             Account savedAccount = AccountRepositoryImpl.ACCOUNT_REPOSITORY.save(newAccount);
             System.out.println("계좌생성완료 - 계좌정보");
-            System.out.println(savedAccount);
+            System.out.println(savedAccount);//수정 요구
 
         } else if ("b".equals(selectedMnue)) {
+            RouterPath.current = Routes.ACCOUNT.name();
             responseDto.setStatus(100);
         } else {
 
@@ -75,5 +101,6 @@ public class Controller {
 
     }
 }
+
 
 

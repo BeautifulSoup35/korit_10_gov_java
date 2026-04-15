@@ -1,8 +1,9 @@
-package ex2.Repository;
+package exectly.repository;
 
-import ex2.entity.Account;
+import exectly.entity.Account;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 public interface AccountRepository {
     Account save(Account account);
