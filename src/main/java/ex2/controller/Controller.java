@@ -40,8 +40,16 @@ public class Controller {
 
         return responseDto;
     }
+    public static ResponseDto<?> getAccountListController() {
+        ResponseDto<?> responseDto;
+        List<Account> accountList =  AccountRepositoryImpl.ACCOUNT_REPOSITORY.findAll();
+        if ( accountList.size() == 0) {//가지고온 account가 비어있다면
+            return new ResponseDto<>(400, "조회된 계좌");
+        }
+            return new ResponseDto<>(200, accountList);
 
 
+    }
     public static ResponseDto<?> accountController(String selectedMnue) {
         ResponseDto<?> responseDto = new ResponseDto<>(200, null);
         if ("1".equals(selectedMnue)) {

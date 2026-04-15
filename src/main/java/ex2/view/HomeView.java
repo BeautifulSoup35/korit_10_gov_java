@@ -28,11 +28,7 @@ public class HomeView implements View {
     public void homeMenu() {
         System.out.println("======<< HOME >>======");
         System.out.println("1. 계좌생성");
-        System.out.println("2. 입금");
-        System.out.println("3. 출금");
-        System.out.println("4. 계좌조회");
-        System.out.println("5. 전체내역");
-        System.out.println("6. 거래내역");
+        System.out.println("2. 계좌조회");
         System.out.println("q. 종료");
         System.out.println("======================");
 

@@ -8,6 +8,6 @@ public interface AccountRepository {
     Account save(Account account);
     Optional<Account> findById(int id);
     Optional<Account> findByAccountNo(String accountNo);
-    List<Optional<Account>> findAll();
+    List<Account> findAll();
 
 }
