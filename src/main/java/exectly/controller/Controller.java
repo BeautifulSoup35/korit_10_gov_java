@@ -2,7 +2,6 @@ package exectly.controller;
 
 import exectly.dto.ResponseDto;
 import exectly.entity.Account;
-import exectly.repository.AccountRepository;
 import exectly.repository.AccountRepositoryImpl;
 import exectly.router.RouterPath;
 import exectly.router.Routes;
